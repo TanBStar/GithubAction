@@ -43,11 +43,11 @@ jobs:
       - name: Start release build
         run: flutter build appbundle
 
-      - name: Build APK
-        run: flutter build apk
+      - name: Build IPA
+        run: flutter build ipa --release
 
-      - name: Upload APK
+      - name: Upload IPA
         uses: actions/upload-artifact@v2
         with:
-          name: apk
-          path: build/app/outputs/flutter-apk/app-release.apk
+          name: ipa
+          path: build/ios/iphoneos/Runner.ipa
