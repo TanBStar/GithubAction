@@ -1,0 +1,40 @@
+name: Build IPA and APK
+
+on:
+  push:
+    branches:
+      - main
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v2
+
+      - name: Setup Flutter
+        uses: subosito/flutter-action@v3
+        with:
+          flutter-version: "3.1.0" # Change to your Flutter version
+
+      - name: Install dependencies
+        run: flutter pub get
+
+      - name: Build APK
+        run: flutter build apk
+
+      - name: Build IPA
+        run: flutter build ios --release --no-codesign
+
+      - name: Upload APK
+        uses: actions/upload-artifact@v2
+        with:
+          name: apk
+          path: build/app/outputs/flutter-apk/app-release.apk
+
+      - name: Upload IPA
+        uses: actions/upload-artifact@v2
+        with:
+          name: ipa
+          path: build/ios/iphoneos/Runner.ipa
