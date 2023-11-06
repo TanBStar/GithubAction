@@ -32,7 +32,7 @@ jobs:
       - uses: subosito/flutter-action@v2
         with:
           # 11
-          flutter-version: "3.13.1"
+          flutter-version: "3.13.9"
           channel: "stable"
           cache: true
       # 12
@@ -40,7 +40,7 @@ jobs:
         run: flutter pub get
 
       - name: Build IPA
-        run: flutter build -h
+        run: flutter build ios
 
       # - name: Upload IPA
       #   uses: actions/upload-artifact@v2
