@@ -9,6 +9,9 @@ jobs:
       - uses: actions/setup-java@v2 # Use the latest version of setup-java action.
         with:
           java-version: "12.x"
+      - uses: actions/setup-node@v2
+        with:
+          node-version: 16
       - uses: subosito/flutter-action@v1
         with:
           flutter-version: "1.7.8+hotfix.4"
