@@ -44,7 +44,7 @@ jobs:
         run: flutter build appbundle
 
       - name: Build IPA
-        run: flutter build ios
+        run: flutter build ipa
 
       - name: Upload IPA
         uses: actions/upload-artifact@v2
